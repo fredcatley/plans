@@ -1,0 +1,395 @@
+<title>Gordon x Fred Catley Rehab</title>
+<style>
+  :root {
+    --paper: #F6F7F6;
+    --card: #FFFFFF;
+    --ink: #212528;
+    --muted: #5C6660;
+    --accent: #2A6B54;
+    --accent-ink: #22513F;
+    --line: #E1E5E2;
+    --wash: #EDF2EF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #131715;
+      --card: #1B201D;
+      --ink: #E6EAE7;
+      --muted: #9AA69F;
+      --accent: #67C9A0;
+      --accent-ink: #8AD8B7;
+      --line: #2A322D;
+      --wash: #202824;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #131715;
+    --card: #1B201D;
+    --ink: #E6EAE7;
+    --muted: #9AA69F;
+    --accent: #67C9A0;
+    --accent-ink: #8AD8B7;
+    --line: #2A322D;
+    --wash: #202824;
+  }
+  :root[data-theme="light"] {
+    --paper: #F6F7F6;
+    --card: #FFFFFF;
+    --ink: #212528;
+    --muted: #5C6660;
+    --accent: #2A6B54;
+    --accent-ink: #22513F;
+    --line: #E1E5E2;
+    --wash: #EDF2EF;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+  section {
+    padding: 56px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  section:first-of-type { border-top: none; }
+
+  .eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(1.45rem, 4vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  p { margin: 0 0 14px; }
+  .lede {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Hero */
+  .hero { padding: 72px 0 48px; }
+  .hero-rule {
+    width: 56px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  /* Card grids */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  @media (min-width: 640px) {
+    .cards.three { grid-template-columns: repeat(3, 1fr); }
+    .cards.two { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 20px 12px;
+  }
+  .card ul { margin: 0; padding-left: 18px; }
+  .card li { margin-bottom: 10px; color: var(--muted); }
+  .card li strong, .card li b { color: var(--ink); }
+
+  ul.plain { margin: 0 0 20px; padding-left: 20px; }
+  ul.plain li { margin-bottom: 12px; }
+  ul.plain li span { color: var(--muted); }
+
+  /* Flare-cycle strip */
+  .cycle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: var(--wash);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 20px 0 24px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .cycle .arrow { color: var(--accent); }
+
+  /* Numbered steps */
+  .steps { display: grid; gap: 0; margin-bottom: 24px; }
+  .step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .step h3 { margin-bottom: 4px; }
+  .step p { color: var(--muted); margin-bottom: 0; }
+
+  /* Callout */
+  .callout {
+    background: var(--wash);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 8px 0 24px;
+  }
+  .callout p { margin: 0; font-weight: 600; }
+
+  /* Pricing */
+  .price-panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 26px;
+    margin-bottom: 24px;
+  }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .price {
+    font-size: clamp(2.6rem, 8vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .price-unit { color: var(--muted); font-size: 1.1rem; font-weight: 600; }
+  .price-terms { margin: 18px 0 0; padding-left: 18px; }
+  .price-terms li { margin-bottom: 8px; color: var(--muted); }
+  .price-terms li strong { color: var(--ink); }
+
+  .closer {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+  .footer-note { color: var(--muted); font-size: 0.9rem; margin-top: 40px; }
+
+  /* Print: keep the on-screen look exactly */
+  @page { size: A4; margin: 10mm 0; }
+  @media print {
+    :root, :root[data-theme="dark"] {
+      --paper: #F6F7F6;
+      --card: #FFFFFF;
+      --ink: #212528;
+      --muted: #5C6660;
+      --accent: #2A6B54;
+      --accent-ink: #22513F;
+      --line: #E1E5E2;
+      --wash: #EDF2EF;
+    }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: var(--paper); }
+    .page { max-width: none; padding: 0 15mm 24px; }
+    section { padding: 36px 0 8px; }
+    .hero { padding: 36px 0 28px; }
+    .step { padding: 14px 0; }
+    .card, .price-panel, .callout, .cycle, .step { break-inside: avoid; }
+    h2, h3, .eyebrow { break-after: avoid; }
+  }
+</style>
+
+<div class="page">
+
+  <section class="hero">
+    <div class="hero-rule"></div>
+    <p class="eyebrow">Fred Catley Rehab</p>
+    <h1>Gordon x Fred Catley Rehab</h1>
+    <p class="lede">Quick plan based on what you've told me.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Outline</p>
+    <div class="cards three">
+      <div class="card">
+        <h3>What You Want</h3>
+        <ul>
+          <li>The knee to stop dictating your life. Not planning a holiday wondering what you'll actually be able to do</li>
+          <li>Get back running and cycling</li>
+          <li>Build the mobility you've not had for years, especially your hips</li>
+          <li>A lifestyle thing, not a quick fix. You said it yourself: being injured is shit, and you don't want to be back here again</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What's Actually Going On</h3>
+        <ul>
+          <li>18 months in: physio, a clear MRI, an injection that did nothing, and a plica resection in January</li>
+          <li>The pain has shifted. It's behind the kneecap now, and it's that sensitive that even tiny drops going down steps bring it on</li>
+          <li>Sitting and driving make it worse. Moving makes it better</li>
+          <li>The band work is fine. It's leg extensions and terminal knee extensions that bring the pain on</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The Problem&hellip;</h3>
+        <ul>
+          <li>You're guessing. 8,000 steps one week, 40,000 a day in Turkey the next. No way of judging what the knee can actually take</li>
+          <li>Physio so far has been a chat and a sheet of exercises. No progression, nothing telling you when you're ready for the next step</li>
+          <li>So every push forward ends the same way:</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cycle">
+      <span>Overdo it</span><span class="arrow">&rarr;</span>
+      <span>Flare up</span><span class="arrow">&rarr;</span>
+      <span>Back off</span><span class="arrow">&rarr;</span>
+      <span>Try again</span><span class="arrow">&rarr;</span>
+      <span>Repeat</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The Fix</p>
+    <h2>What I Would Do Instead</h2>
+    <ul class="plain">
+      <li><strong>Put a lot more load through those quads.</strong> <span>Bands are good early on, but to get the knee healthy again you need proper weight. Leg presses, leg extensions, built up with minimal to no pain around the knee.</span></li>
+      <li><strong>Work hard, push hard, but not to the point of flaring up.</strong> <span>That balance is the bit you've not been able to judge on your own. That becomes my job.</span></li>
+      <li><strong>Progress on objective data, not guesswork.</strong> <span>How many reps can you do on a leg extension? How long can you hold a wall sit? When the numbers are there, you move on to the next phase.</span></li>
+      <li><strong>I'm assessing you as we go along.</strong> <span>The contact is that frequent that I'm looking at your movement constantly, not once at an appointment.</span></li>
+    </ul>
+    <div class="callout">
+      <p>I'll be honest with you: this has been poorly managed, and that's not on you. The MRI was clear. What's left is weakness around the knee and some lost confidence, and we can train both.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Structure</p>
+    <h2>What A Week Would Look Like</h2>
+    <div class="cards three">
+      <div class="card">
+        <h3>Gym &times; 3 Per Week</h3>
+        <ul>
+          <li>Sessions start nice and short</li>
+          <li>Mostly strength early on: quads, hamstrings, some machines, some free weights</li>
+          <li>Built around whatever days suit you</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Daily Mobility (5 Mins)</h3>
+        <ul>
+          <li>Five minutes a day, that's it</li>
+          <li>Focused on your hips</li>
+          <li>You feel better when you're moving, so we keep you moving</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Home vs Gym</h3>
+        <ul>
+          <li>You can start at home, but the gym gives you a lot more bang for your buck</li>
+          <li>Doesn't need to be expensive. Kendal Leisure Centre, Westmorland, or Phoenix all work</li>
+          <li>Past rehab, that leg strength is how you keep the knee healthy</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The Process</p>
+    <h2>How The Coaching Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Testing</h3>
+          <p>A general movement screening and some strength testing. Film yourself at home in your own time and send it over on WhatsApp.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Video Feedback</h3>
+          <p>I send a video back going through what I can see from a movement and strength point of view. You'll have it within half a day to a day.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Your Programme</h3>
+          <p>Built on the app around your goals and whatever days you can train. Sets, reps, cues, video demos, all on there.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Daily Support</h3>
+          <p>Essentially 24 hour support on WhatsApp through the week. Send videos of your exercises and I feed back on your form. Questions, concerns, worries, I'm on hand for all of it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Bottom Line</p>
+    <h2>What This Means For You</h2>
+    <ul class="plain">
+      <li><strong>None of this is your fault.</strong> <span>You've done your research and put the work in. What you've not had is effective rehab.</span></li>
+      <li><strong>The flare-up cycle isn't random.</strong> <span>It's what happens when you're guessing. Structure fixes it.</span></li>
+      <li><strong>Running is realistic.</strong> <span>Build the strength, hit the numbers, then build back to it.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">Pricing</p>
+    <h2>Getting Started</h2>
+    <div class="price-panel">
+      <div class="price-row">
+        <span class="price">&pound;197</span>
+        <span class="price-unit">/ month</span>
+      </div>
+      <ul class="price-terms">
+        <li><strong>3-month minimum commitment</strong>, then it just rolls on at &pound;197</li>
+        <li><strong>25-day money-back guarantee</strong></li>
+        <li><strong>Getting started:</strong> payment details over WhatsApp &rarr; consent form &rarr; app link &rarr; I walk you through everything from there. Testing is done in your own time.</li>
+      </ul>
+    </div>
+    <p class="closer">Any questions about the coaching or the knee, drop me a message on WhatsApp.</p>
+    <p class="footer-note">Fred Catley Rehab &middot; Call summary &middot; 5 August 2026</p>
+  </section>
+
+</div>
