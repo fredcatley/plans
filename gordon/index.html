@@ -14,38 +14,7 @@
     --line: #E1E5E2;
     --wash: #EDF2EF;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #131715;
-      --card: #1B201D;
-      --ink: #E6EAE7;
-      --muted: #9AA69F;
-      --accent: #67C9A0;
-      --accent-ink: #8AD8B7;
-      --line: #2A322D;
-      --wash: #202824;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #131715;
-    --card: #1B201D;
-    --ink: #E6EAE7;
-    --muted: #9AA69F;
-    --accent: #67C9A0;
-    --accent-ink: #8AD8B7;
-    --line: #2A322D;
-    --wash: #202824;
-  }
-  :root[data-theme="light"] {
-    --paper: #F6F7F6;
-    --card: #FFFFFF;
-    --ink: #212528;
-    --muted: #5C6660;
-    --accent: #2A6B54;
-    --accent-ink: #22513F;
-    --line: #E1E5E2;
-    --wash: #EDF2EF;
-  }
+  /* Locked to the light look on all devices */
 
   body {
     background: var(--paper);
