@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darrin x Fred Catley Rehab</title>
+<style>
+  :root {
+    --paper: #F6F7F6;
+    --card: #FFFFFF;
+    --ink: #212528;
+    --muted: #5C6660;
+    --accent: #2A6B54;
+    --accent-ink: #22513F;
+    --line: #E1E5E2;
+    --wash: #EDF2EF;
+  }
+  /* Locked to the light look on all devices */
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+  section {
+    padding: 56px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  section:first-of-type { border-top: none; }
+
+  .eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(1.45rem, 4vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  p { margin: 0 0 14px; }
+  .lede {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Hero */
+  .hero { padding: 72px 0 48px; }
+  .hero-rule {
+    width: 56px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  /* Card grids */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  @media (min-width: 640px) {
+    .cards.three { grid-template-columns: repeat(3, 1fr); }
+    .cards.two { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 20px 12px;
+  }
+  .card ul { margin: 0; padding-left: 18px; }
+  .card li { margin-bottom: 10px; color: var(--muted); }
+  .card li strong, .card li b { color: var(--ink); }
+  .card p { color: var(--muted); margin-bottom: 8px; }
+
+  ul.plain { margin: 0 0 20px; padding-left: 20px; }
+  ul.plain li { margin-bottom: 12px; }
+  ul.plain li span { color: var(--muted); }
+
+  /* Advice strip */
+  .cycle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: var(--wash);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 20px 0 24px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .cycle .arrow { color: var(--accent); }
+
+  /* Numbered steps */
+  .steps { display: grid; gap: 0; margin-bottom: 24px; }
+  .step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .step h3 { margin-bottom: 4px; }
+  .step p { color: var(--muted); margin-bottom: 0; }
+
+  /* Callout */
+  .callout {
+    background: var(--wash);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 8px 0 24px;
+  }
+  .callout p { margin: 0; font-weight: 600; }
+
+  /* Pricing */
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 640px) {
+    .price-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .price-panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px 24px 20px;
+  }
+  .price-panel.featured { border-color: var(--accent); }
+  .price-label {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .price-panel.featured .price-label { color: var(--accent); }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .price {
+    font-size: clamp(2.3rem, 7vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .price-unit { color: var(--muted); font-size: 1.05rem; font-weight: 600; }
+  .price-note { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+  ul.terms { margin: 0 0 24px; padding-left: 20px; }
+  ul.terms li { margin-bottom: 10px; color: var(--muted); }
+  ul.terms li strong { color: var(--ink); }
+
+  .closer {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+  .footer-note { color: var(--muted); font-size: 0.9rem; margin-top: 40px; }
+
+  /* Print: keep the on-screen look exactly */
+  @page { size: A4; margin: 10mm 0; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: var(--paper); }
+    .page { max-width: none; padding: 0 15mm 24px; }
+    section { padding: 36px 0 8px; }
+    .hero { padding: 36px 0 28px; }
+    .step { padding: 14px 0; }
+    .card, .price-panel, .callout, .cycle, .step { break-inside: avoid; }
+    h2, h3, .eyebrow { break-after: avoid; }
+  }
+</style>
+
+<div class="page">
+
+  <section class="hero">
+    <div class="hero-rule"></div>
+    <p class="eyebrow">Fred Catley Rehab</p>
+    <h1>Darrin x Fred Catley Rehab</h1>
+    <p class="lede">Quick plan based on what you've told me.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Outline</p>
+    <div class="cards three">
+      <div class="card">
+        <h3>What You Want</h3>
+        <ul>
+          <li>Get back running</li>
+          <li>Back to where you were middle of last year. A competent level of fitness, HIIT, turf games</li>
+          <li>Get back the strength you've noticed you've lost</li>
+          <li>Back on the bike, which you've been told to stay off</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What's Actually Going On</h3>
+        <ul>
+          <li>Stress fracture mid-April, confirmed on the MRI. You thought it was shin splints at the time, so you carried on walking on it</li>
+          <li>Bupa gave you crutches and said don't touch the floor. You couldn't do that, you were building the studio gym</li>
+          <li>You reckon it's 90 to 95% healed. No limp, stairs are fine, no pain day to day</li>
+          <li>10,000 steps might leave a really dull ache the next morning. A 1 out of 10</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The Problem&hellip;</h3>
+        <ul>
+          <li>Two months with no lower body work at all. Back in June you were deadlifting 130 to 140kg and squatting fine</li>
+          <li>No conditioning either. The bike was the one thing you could do and that got taken off you as well</li>
+          <li>You've had nothing on what you can actually do loading-wise. Here's what you were given:</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cycle">
+      <span>Don't touch the floor</span><span class="arrow">&rarr;</span>
+      <span>Don't walk</span><span class="arrow">&rarr;</span>
+      <span>Stay off the bike</span><span class="arrow">&rarr;</span>
+      <span>No plan after that</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The Fix</p>
+    <h2>What I Would Do Instead</h2>
+    <ul class="plain">
+      <li><strong>Start loading it.</strong> <span>Isometrics first, even just holding certain positions on the floor, then literally build up from there and stay cautious with any pain.</span></li>
+      <li><strong>At this point, rehab equals training.</strong> <span>You've not loaded your legs in two months, so we get everything strong alongside the shin. Calf raises, quads, hamstrings, glutes.</span></li>
+      <li><strong>Get the conditioning back in.</strong> <span>The bike goes straight back on. That way, by the time you're running again, you're not gassing out.</span></li>
+      <li><strong>Back to running around the 12 week mark.</strong> <span>That's realistic from where you are now, built up gradually rather than jumping straight back into 10k.</span></li>
+    </ul>
+    <div class="callout">
+      <p>To be honest, I don't think this has been managed well. You've not been given any guidelines on what you can do loading-wise, at all. The bone has healed. What you've lost is the strength and fitness around it, and that's the bit we build.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Structure</p>
+    <h2>What A Week Would Look Like</h2>
+    <div class="cards two">
+      <div class="card">
+        <h3>Lower Body &times; 3 Per Week</h3>
+        <ul>
+          <li>Starts with isometrics and builds from there</li>
+          <li>Calf raises, quads, hamstrings, glutes, all focused around the shin</li>
+          <li>Structured like your old lower body sessions: mobility, main strength work, accessories</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Upper Body &times; 2 Per Week</h3>
+        <ul>
+          <li>The chest, shoulders and back work you're already doing</li>
+          <li>I programme it too, so the whole week is planned, not just the shin</li>
+          <li>Your home setup is fine. Squat rack, barbell and dumbbells is all I need</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Daily Mobility (5 Mins)</h3>
+        <ul>
+          <li>Five minutes a day, that's it</li>
+          <li>Groin and hamstrings included, since you noticed that made a real difference before</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Off Feet Conditioning</h3>
+        <ul>
+          <li>The bike comes back in</li>
+          <li>Builds your fitness back while the shin is still being loaded gradually</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Progression</p>
+    <h2>How The 12 Weeks Work</h2>
+    <p>Four phases. You don't move into the next one because a certain number of weeks have gone by. You move when you hit the criteria.</p>
+    <div class="cards three">
+      <div class="card">
+        <h3>Strength</h3>
+        <p>Hitting the numbers for that phase.</p>
+      </div>
+      <div class="card">
+        <h3>Confidence</h3>
+        <p>Trusting the leg under load.</p>
+      </div>
+      <div class="card">
+        <h3>Pain</h3>
+        <p>The big one. Minimal to no pain and we sail through. Loads of pain and we back off.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The Process</p>
+    <h2>How The Coaching Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Testing</h3>
+          <p>We look at some positions and see what scores we've got on the doors. You film it at home and send it over on WhatsApp.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Your Programme</h3>
+          <p>Everything goes on the app. Lower body, upper body and conditioning, not just a few exercises for the shin.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Daily Support</h3>
+          <p>Daily WhatsApp support, and that's not just messaging. You send over videos of the exercises and I give you feedback and tweaks. You're not sent away with a few exercises wondering what you're doing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Bottom Line</p>
+    <h2>What This Means For You</h2>
+    <ul class="plain">
+      <li><strong>The frustration is fair.</strong> <span>Four months of being told to rest, with no guidance on what you can do. That was never going to get you back running.</span></li>
+      <li><strong>Rehab and training are the same thing here.</strong> <span>You're not fragile, you're detrained. The fix is loading the legs again properly.</span></li>
+      <li><strong>12 weeks to running is realistic.</strong> <span>Hit the criteria phase by phase and you get there with your fitness intact, not starting from scratch.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">Pricing</p>
+    <h2>Getting Started</h2>
+    <div class="price-grid">
+      <div class="price-panel">
+        <p class="price-label">Monthly</p>
+        <div class="price-row">
+          <span class="price">&pound;225</span>
+          <span class="price-unit">/ month</span>
+        </div>
+        <p class="price-note">3 months minimum, which is the 12 weeks.</p>
+      </div>
+      <div class="price-panel featured">
+        <p class="price-label">Paid Up Front</p>
+        <div class="price-row">
+          <span class="price">&pound;579</span>
+          <span class="price-unit">/ 3 months</span>
+        </div>
+        <p class="price-note">Same thing, saves you &pound;96.</p>
+      </div>
+    </div>
+    <ul class="terms">
+      <li><strong>25-day money-back guarantee.</strong> You don't have to give a reason</li>
+      <li><strong>Getting started:</strong> payment details over WhatsApp &rarr; consent form &rarr; app link &rarr; I walk you through the testing, which you do in your own time</li>
+      <li><strong>Send the MRI over</strong> on WhatsApp whenever you get a minute, either way</li>
+    </ul>
+    <p class="closer">Any questions about the coaching or the shin, drop me a message on WhatsApp.</p>
+    <p class="footer-note">Fred Catley Rehab &middot; Call summary &middot; 25 August 2026</p>
+  </section>
+
+</div>
