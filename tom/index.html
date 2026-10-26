@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tom x Fred Catley Rehab</title>
+<style>
+  :root {
+    --paper: #F6F7F6;
+    --card: #FFFFFF;
+    --ink: #212528;
+    --muted: #5C6660;
+    --accent: #2A6B54;
+    --accent-ink: #22513F;
+    --line: #E1E5E2;
+    --wash: #EDF2EF;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+  section {
+    padding: 56px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  section:first-of-type { border-top: none; }
+
+  .eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(1.45rem, 4vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  p { margin: 0 0 14px; }
+  .lede {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .hero { padding: 72px 0 48px; }
+  .hero-rule {
+    width: 56px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  @media (min-width: 640px) {
+    .cards.three { grid-template-columns: repeat(3, 1fr); }
+    .cards.two { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 20px 12px;
+  }
+  .card ul { margin: 0; padding-left: 18px; }
+  .card li { margin-bottom: 10px; color: var(--muted); }
+  .card li strong, .card li b { color: var(--ink); }
+
+  ul.plain { margin: 0 0 20px; padding-left: 20px; }
+  ul.plain li { margin-bottom: 12px; }
+  ul.plain li span { color: var(--muted); }
+
+  .cycle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: var(--wash);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 20px 0 24px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .cycle .arrow { color: var(--accent); }
+
+  .steps { display: grid; gap: 0; margin-bottom: 24px; }
+  .step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .step h3 { margin-bottom: 4px; }
+  .step p { color: var(--muted); margin-bottom: 0; }
+
+  .callout {
+    background: var(--wash);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 8px 0 24px;
+  }
+  .callout p { margin: 0; font-weight: 600; }
+
+  .price-panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 26px;
+    margin-bottom: 24px;
+  }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .price {
+    font-size: clamp(2.6rem, 8vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .price-unit { color: var(--muted); font-size: 1.1rem; font-weight: 600; }
+  .price-alt {
+    margin: 20px 0 0;
+    padding: 16px 20px;
+    background: var(--wash);
+    border-radius: 6px;
+  }
+  .price-alt strong { font-size: 1.3rem; }
+  .price-terms { margin: 18px 0 0; padding-left: 18px; }
+  .price-terms li { margin-bottom: 8px; color: var(--muted); }
+  .price-terms li strong { color: var(--ink); }
+
+  .closer {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+  .footer-note { color: var(--muted); font-size: 0.9rem; margin-top: 40px; }
+
+  @page { size: A4; margin: 10mm 0; }
+  @media print {
+    :root {
+      --paper: #F6F7F6;
+      --card: #FFFFFF;
+      --ink: #212528;
+      --muted: #5C6660;
+      --accent: #2A6B54;
+      --accent-ink: #22513F;
+      --line: #E1E5E2;
+      --wash: #EDF2EF;
+    }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: var(--paper); }
+    .page { max-width: none; padding: 0 15mm 24px; }
+    section { padding: 36px 0 8px; }
+    .hero { padding: 36px 0 28px; }
+    .step { padding: 14px 0; }
+    .card, .price-panel, .callout, .cycle, .step { break-inside: avoid; }
+    h2, h3, .eyebrow { break-after: avoid; }
+  }
+</style>
+
+<div class="page">
+
+  <section class="hero">
+    <div class="hero-rule"></div>
+    <p class="eyebrow">Fred Catley Rehab</p>
+    <h1>Tom x Fred Catley Rehab</h1>
+    <p class="lede">Quick plan based on what you told me.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Outline</p>
+    <div class="cards three">
+      <div class="card">
+        <h3>What You Want</h3>
+        <ul>
+          <li>Get back to continuous running by the end of the year</li>
+          <li>Hyrox in March. Marathon end of May</li>
+          <li>Take the guesswork out of it. Know whether a sensation is something to push through or something to stop on</li>
+          <li>Not rush it and get injured again</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What's Actually Going On</h3>
+        <ul>
+          <li>Tibial stress fracture. Not a full fracture, but it has kept you off running for about three months</li>
+          <li>You can do most things without pain during the session. It shows up later that day or the next day</li>
+          <li>You completed the jumping program and started return-to-run last week. Sensations came back after</li>
+          <li>Work physio once a month. Good structure, but not enough contact in between</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The Problem&hellip;</h3>
+        <ul>
+          <li>There are no strength benchmarks. No numbers to aim for, no way of knowing when you're actually ready</li>
+          <li>Too many things competing at once: Hyrox, conditioning, strength, and rehab all in the mix</li>
+          <li>So every time you push forward, you're guessing whether your body is ready for it or not:</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cycle">
+      <span>Push forward</span><span class="arrow">&rarr;</span>
+      <span>Sensations return</span><span class="arrow">&rarr;</span>
+      <span>Back off</span><span class="arrow">&rarr;</span>
+      <span>Try again</span><span class="arrow">&rarr;</span>
+      <span>Repeat</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The Fix</p>
+    <h2>What I Would Do Instead</h2>
+    <ul class="plain">
+      <li><strong>Fill the gap in the jumping progression.</strong> <span>Stage 14 of the program doesn't clear you for running. Before running, you need to get through single-leg pogos, skipping, and bounding. The force going through the joints in those movements is significantly higher. That's where the load tolerance gets built.</span></li>
+      <li><strong>Give you actual numbers to hit.</strong> <span>No physio has given you a strength benchmark yet. As a starting point, your calves alone need a three-rep max calf raise at a minimum of 80% of your bodyweight in external load. That's more than most people are doing. If there's a deficit there, that's part of why things are creeping back in when you start running.</span></li>
+      <li><strong>Get the rehab inside your training, not before it.</strong> <span>Doing your physio work as a warm-up before a Hyrox session is not replicating the demands. The rehab should be your training, at least for now. Split squats, RDLs, the calf work. All built into a proper session with the right order and the right load.</span></li>
+      <li><strong>Simplify what you're doing.</strong> <span>Nail the shin first. Get back to running. Then the Hyrox, then the marathon. You can do all of those things, but trying to do them all at the same time is what's making the injury harder to manage.</span></li>
+    </ul>
+    <div class="callout">
+      <p>Once you can see the numbers and you're hitting them, it's not "I think I'm ready." It's "I'm ready." That's what you said you wanted from this.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Structure</p>
+    <h2>What A Week Would Look Like</h2>
+    <div class="cards three">
+      <div class="card">
+        <h3>Strength &times; 3 Per Week</h3>
+        <ul>
+          <li>Full body, Monday, Wednesday, Friday</li>
+          <li>Jumping and plyometric work built into the warm-up, not bolted on separately</li>
+          <li>Strength work immediately after, with the right numbers to hit week on week</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Running (When Ready)</h3>
+        <ul>
+          <li>Tuesday, once you've cleared the strength and jumping benchmarks</li>
+          <li>10% volume increase week on week, maximum, once you're back to full health</li>
+          <li>Progression based on data, not a fixed timeline</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Conditioning</h3>
+        <ul>
+          <li>Off-feet zone two on Saturday. Bike, ski, row. No impact</li>
+          <li>The Hyrox-style sessions stay if they're not cutting into recovery. We adjust as we go</li>
+          <li>Upper body mixed in around all of it</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Timeline</p>
+    <h2>How Long This Takes</h2>
+    <p>Without testing I can't give you exact weeks. But based on where you are now, I'd expect you doing continuous running within three to four months. Plenty of time for the marathon in May.</p>
+    <p>The reason I can't be more specific is that the testing is what tells me. If you're pain-free and hitting the strength numbers at week three, you start running at week three. If something needs more time, we extend it. You're not waiting for a date on a calendar, you're waiting for a number on a screen. That's the difference.</p>
+    <div class="callout">
+      <p>You've done marathons before. You know the difference between normal training discomfort and something that shouldn't be there. That's exactly the kind of athlete this process is built for.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The Process</p>
+    <h2>How The Coaching Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Testing</h3>
+          <p>Movement screening and basic strength testing on the app. You film yourself, send it over on WhatsApp. I get the numbers back and build your plan off those.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Your Programme</h3>
+          <p>Built on the app around your goals, your training days, and what the testing shows needs work. Strength, conditioning, and rehab all in one plan, not three separate things competing for the same days.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Daily Support on WhatsApp</h3>
+          <p>This is the part your current setup is missing. Send videos of your exercises and I feed back on form. Questions in between sessions. Is this sensation normal? Should I push through it? I'm there for all of it, not once a month.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Weekly Check-in</h3>
+          <p>Review of the week. Numbers, how things felt, what changes for the week ahead. The plan adjusts constantly, not just at the next appointment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Bottom Line</p>
+    <h2>What This Means For You</h2>
+    <ul class="plain">
+      <li><strong>This is fixable.</strong> <span>It is not drastic. It is a few gaps in the progression and a lack of strength benchmarks. Both are straightforward to address.</span></li>
+      <li><strong>The sensations coming back are not a sign the injury is getting worse.</strong> <span>They're a sign the load jumped before the tissue was ready for it. Structure fixes that.</span></li>
+      <li><strong>Marathon in May is realistic.</strong> <span>Get the shin cleared, get back to running by the new year, build from there. The 10% volume rule does the rest.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">Pricing</p>
+    <h2>Getting Started</h2>
+    <div class="price-panel">
+      <div class="price-row">
+        <span class="price">&pound;225</span>
+        <span class="price-unit">/ month</span>
+      </div>
+      <ul class="price-terms">
+        <li><strong>3-month minimum commitment</strong>, then rolls on at &pound;225/month</li>
+        <li><strong>Or &pound;599 upfront for 12 weeks</strong>, saving &pound;76</li>
+        <li><strong>25-day money-back guarantee</strong></li>
+        <li><strong>Getting started:</strong> payment details over WhatsApp, consent form, app link. Testing done in your own time from there.</li>
+      </ul>
+    </div>
+    <p class="closer">Any questions, drop me a message on Instagram.</p>
+    <p class="footer-note">Fred Catley Rehab &middot; Call summary &middot; 26 October 2026</p>
+  </section>
+
+</div>
