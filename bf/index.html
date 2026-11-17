@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Friday Priority List — Fred Catley Rehab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root {
+  --bg: #131316;
+  --fg: #F0F0F3;
+  --muted: #5A5A65;
+  --dim: #1C1C21;
+  --border: #2A2A32;
+  --accent: #4F8EFF;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding-block: 56px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.wrap { width: 100%; max-width: 480px; }
+
+h1 {
+  font-size: clamp(42px, 11vw, 68px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 28px;
+  text-wrap: balance;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.counter-n {
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  min-width: 70px;
+}
+
+.counter-info strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.counter-info span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.deal {
+  background: var(--dim);
+  border-radius: 10px;
+  padding: 4px 16px;
+  margin-bottom: 28px;
+}
+
+.deal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 0;
+  font-size: 14px;
+  gap: 12px;
+}
+
+.deal-row + .deal-row { border-top: 1px solid var(--border); }
+.deal-row .lbl { color: var(--muted); }
+.deal-row .val { font-weight: 700; text-align: right; }
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: var(--accent);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover { opacity: 0.88; }
+
+/* Results */
+.results {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.results-head {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+
+.result-item { display: flex; flex-direction: column; gap: 12px; }
+
+.result-meta { display: flex; flex-direction: column; gap: 4px; }
+
+.result-name {
+  font-size: 13px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.result-before {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.result-after {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--dim);
+}
+
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Black Friday Priority List.</h1>
+
+  <div class="counter">
+    <div class="counter-n">5</div>
+    <div class="counter-info">
+      <strong>spots remaining</strong>
+      <span>of 8 total</span>
+    </div>
+  </div>
+
+  <div class="deal">
+    <div class="deal-row">
+      <span class="lbl">Priority list access</span>
+      <span class="val">Thu 27 Nov, 7am</span>
+    </div>
+    <div class="deal-row">
+      <span class="lbl">Opens</span>
+      <span class="val">Fri 28 Nov, 7am</span>
+    </div>
+    <div class="deal-row">
+      <span class="lbl">Closes</span>
+      <span class="val">Mon 1 Dec, 7pm</span>
+    </div>
+  </div>
+
+  <a class="btn" href="https://wa.me/447774319547?text=Hey%20Fred%20-%20I%27d%20like%20to%20join%20the%20Black%20Friday%20priority%20list">Join priority list</a>
+
+  <div class="results">
+    <p class="results-head">Client results</p>
+
+    <div class="result-item">
+      <div class="result-meta">
+        <p class="result-name">Lukas</p>
+        <p class="result-before">Crippling hip and knee pain, couldn't do a bodyweight squat.</p>
+        <p class="result-after">Back to snatching and clean jerking without any pain.</p>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/bDRPWW1M-os" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="result-item">
+      <div class="result-meta">
+        <p class="result-name">Rob</p>
+        <p class="result-before">Couldn't walk properly or bend down. Started compensating and developed issues in the other knee.</p>
+        <p class="result-after">Completed a 70-mile ultramarathon.</p>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/ETxizJJwM-0" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="result-item">
+      <div class="result-meta">
+        <p class="result-name">Sammy</p>
+        <p class="result-before">Crippling lower back pain, fobbed off by normal physio.</p>
+        <p class="result-after">Back to CrossFit classes without any issues.</p>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/MzurlYaEHhE" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="result-item">
+      <div class="result-meta">
+        <p class="result-name">Darrin</p>
+        <p class="result-before">Stress fracture, hadn't run in months, frustrated with normal physio.</p>
+        <p class="result-after">Back to running 5km pain free.</p>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/0TSC_0lx3w4" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="result-item">
+      <div class="result-meta">
+        <p class="result-name">Kath</p>
+        <p class="result-before">Chronic Achilles and knee pain. Was going round in circles.</p>
+        <p class="result-after">Back to lifting pre-injury weights with no issues.</p>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/Z2QomzIEDZQ" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
