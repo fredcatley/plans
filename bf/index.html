@@ -103,9 +103,42 @@ h1 {
 
 .pitch {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--fg);
   margin: 0 0 20px;
   line-height: 1.6;
+}
+
+.countdown {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.cd-unit {
+  flex: 1;
+  background: var(--dim);
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.cd-n {
+  display: block;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-lbl {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
 }
 
 .btn {
@@ -223,8 +256,15 @@ h1 {
     <div class="counter-n">5</div>
     <div class="counter-info">
       <strong>spots remaining</strong>
-      <span>of 8 total</span>
+      <span>3 already taken by existing clients</span>
     </div>
+  </div>
+
+  <div class="countdown">
+    <div class="cd-unit"><span class="cd-n" id="cd-d">--</span><span class="cd-lbl">days</span></div>
+    <div class="cd-unit"><span class="cd-n" id="cd-h">--</span><span class="cd-lbl">hours</span></div>
+    <div class="cd-unit"><span class="cd-n" id="cd-m">--</span><span class="cd-lbl">mins</span></div>
+    <div class="cd-unit"><span class="cd-n" id="cd-s">--</span><span class="cd-lbl">secs</span></div>
   </div>
 
   <div class="deal">
@@ -318,5 +358,33 @@ h1 {
     </div><!-- /results-grid -->
   </div>
 </div>
+<script>
+(function() {
+  // Thu 27 Nov 2026, 07:00 UK time (GMT)
+  var target = new Date('2026-11-27T07:00:00Z');
+  var ids = ['cd-d','cd-h','cd-m','cd-s'];
+
+  function pad(n) { return String(n).padStart(2,'0'); }
+
+  function tick() {
+    var diff = target - Date.now();
+    if (diff <= 0) {
+      ids.forEach(function(id,i){ document.getElementById(id).textContent = '00'; });
+      return;
+    }
+    var s = Math.floor(diff/1000);
+    var m = Math.floor(s/60); s %= 60;
+    var h = Math.floor(m/60); m %= 60;
+    var d = Math.floor(h/24); h %= 24;
+    document.getElementById('cd-d').textContent = pad(d);
+    document.getElementById('cd-h').textContent = pad(h);
+    document.getElementById('cd-m').textContent = pad(m);
+    document.getElementById('cd-s').textContent = pad(s);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 </body>
 </html>
