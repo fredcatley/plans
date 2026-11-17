@@ -141,15 +141,21 @@ h1 {
 .results-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  align-items: start;
+  gap: 12px 24px;
 }
 
 @media (max-width: 560px) {
   .results-grid { grid-template-columns: 1fr; }
+  .result-item { grid-row: span 1 !important; grid-template-rows: unset !important; }
 }
 
-.result-item { display: flex; flex-direction: column; gap: 12px; }
+.result-item {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  gap: 12px;
+  align-items: start;
+}
 
 .result-meta { display: flex; flex-direction: column; gap: 6px; }
 
