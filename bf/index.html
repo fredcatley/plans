@@ -32,7 +32,7 @@ body {
 }
 
 .wrap { width: 100%; max-width: 860px; }
-.top { max-width: 480px; }
+.top { max-width: 480px; margin: 0 auto; }
 
 h1 {
   font-size: clamp(42px, 11vw, 68px);
@@ -134,16 +134,17 @@ h1 {
 .results-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 24px;
+  align-items: start;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 560px) {
   .results-grid { grid-template-columns: 1fr; }
 }
 
-.result-item { display: flex; flex-direction: column; gap: 10px; }
+.result-item { display: flex; flex-direction: column; gap: 12px; }
 
-.result-meta { display: flex; flex-direction: column; gap: 8px; }
+.result-meta { display: flex; flex-direction: column; gap: 6px; }
 
 .result-name {
   font-size: 15px;
